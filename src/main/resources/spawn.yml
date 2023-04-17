@@ -1,0 +1,13 @@
+options:
+  spawnOnJoin: true
+  spawnOnVoid: true
+  spawnOnRespawn: true
+
+spawns:
+  default:
+    world: world
+    x: -0.0
+    y: 80.0
+    z: 0.0
+    yaw: -90.04831
+    pitch: 1.599675

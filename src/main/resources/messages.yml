@@ -1,0 +1,11 @@
+messages:
+  helpCommand:
+    - "&m-------------"
+    - "&e&lJoinEventsHQ &fHelp Menu"
+    - "&b/je &ffor help"
+    - "&b/je reload &freload the configs"
+    - "&b/je spawns &flist all spawns."
+    - "&b/je addspawn <name> &fadd a spawn."
+    - "&b/je removespawn <name> &fremove a spawn."
+    - "&m-------------"
+  spawnListEmpty: "&cNo spawns has been found!"

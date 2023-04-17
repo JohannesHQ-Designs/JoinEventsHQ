@@ -1,0 +1,27 @@
+enable: true
+join:
+  joinMessage: "%playerName% joined the server!"
+  title:
+    enabled: true
+    title: "&a&lʙɪᴏᴍᴇ &6&lɴᴇᴛᴡᴏʀᴋ"
+    sub: "Welcome!"
+  consoleCommands:
+    - 'cmi spawn %player_name%'
+  playerCommands: []
+  motd:
+    enabled: true
+    delay: 60
+    sound: "BLOCK_BEEHIVE_EXIT"
+    message:
+      - ""
+      - "                  &9🌊 &6Welcome to Biome Network &9🌊"
+      - ""
+quit:
+  quitMessage: "%playerName% left the server!"
+
+firstJoin:
+  broadcast: ""
+  sound: "BLOCK_BEEHIVE_EXIT"
+  consoleCommands:
+    - 'cmi spawn %player_name%'
+  playerCommands: []

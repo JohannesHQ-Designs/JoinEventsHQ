@@ -1,0 +1,5 @@
+name: JoinEventsHQ
+version: 1.0
+main: com.nopermission.joineventshq.JoinEventsHQ
+softdepend:
+  - PlaceholderAPI
