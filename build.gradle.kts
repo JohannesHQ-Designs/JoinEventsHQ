@@ -1,5 +1,3 @@
-import java.util.*
-
 plugins {
     id("java")
     `java-library`
@@ -20,9 +18,6 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:1.19.4-R0.1-SNAPSHOT")
 
     implementation("dev.dejvokep:boosted-yaml:1.3")
-
-    //XSeries
-    implementation("com.github.cryptomorin:XSeries:8.5.0.1")
 
     //PAPI
     compileOnly("me.clip:placeholderapi:2.11.1")

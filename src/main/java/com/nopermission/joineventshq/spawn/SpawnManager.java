@@ -11,17 +11,14 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.spigotmc.event.player.PlayerSpawnLocationEvent;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class SpawnManager implements Listener {
 
     private static SpawnManager spawnManager;
     private final JoinEventsHQ plugin;
     private final HashMap<String, Spawn> spawnHashMap = new HashMap<>();
-    private SpawnConfig spawnConfig;
+    private final SpawnConfig spawnConfig;
     public SpawnManager(JoinEventsHQ joinEventsHQ) {
         spawnManager = this;
         plugin = joinEventsHQ;
@@ -32,6 +29,32 @@ public class SpawnManager implements Listener {
     public void reload() {
         spawnConfig.reload();
         loadSpawns();
+    }
+
+    public void delSpawn(String name) {
+        Optional<Spawn> spawn = getSpawn(name);
+
+        if (spawn.isEmpty())
+            return;
+
+        spawn.get().deleteFromConfig();
+        spawnHashMap.remove(name);
+    }
+
+    public void addSpawn(String name, Location location) {
+        Optional<Spawn> optionalSpawn = getSpawn(name);
+
+        if (optionalSpawn.isPresent())
+            return;
+
+        Spawn spawn = new Spawn(name, location.getWorld().getName(), location.getX(), location.getY(), location.getZ(), location.getYaw(), location.getPitch());
+        spawn.saveToConfig();
+        spawnHashMap.put(name, spawn);
+    }
+
+    public Optional<Spawn> getSpawn(String name) {
+        Optional<Map.Entry<String, Spawn>> optionalStringSpawnEntry = spawnHashMap.entrySet().stream().filter(stringSpawnEntry -> stringSpawnEntry.getKey().equalsIgnoreCase(name)).findFirst();
+        return optionalStringSpawnEntry.map(Map.Entry::getValue);
     }
 
     @EventHandler
@@ -72,7 +95,7 @@ public class SpawnManager implements Listener {
         Section spawns = spawnConfig.getConfig().getSection("spawns");
         if (spawns != null) {
             for (Object key : spawns.getKeys()) {
-                plugin.log("Loading spawn: " + key);
+                plugin.log("&cLoading spawn: " + key);
                 String worldname = spawnConfig.getConfig().getString("spawns." + key + ".world");
                 double spawnx = spawnConfig.getConfig().getDouble("spawns." + key + ".x");
                 double spawny = spawnConfig.getConfig().getDouble("spawns." + key + ".y");
@@ -80,10 +103,10 @@ public class SpawnManager implements Listener {
                 float spawnyaw = spawnConfig.getConfig().getInt("spawns." + key + ".yaw");
                 float spawnpitch = spawnConfig.getConfig().getInt("spawns." + key + ".pitch");
 
-                plugin.log("Loaded spawn: " + key);
+                plugin.log("&aLoaded spawn: " + key);
                 spawnHashMap.put(key.toString(), new Spawn(key.toString(), worldname, spawnx, spawny, spawnz, spawnyaw, spawnpitch));
             }
-            plugin.log("Loaded " + spawnHashMap.size() + " spawns!");
+            plugin.log("&aLoaded " + spawnHashMap.size() + " spawns!");
         }
     }
 

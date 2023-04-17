@@ -3,8 +3,9 @@ package com.nopermission.joineventshq;
 import com.nopermission.joineventshq.commands.JoinEventsHQCommand;
 import com.nopermission.joineventshq.commands.SpawnCommand;
 import com.nopermission.joineventshq.configs.Configuration;
-import com.nopermission.joineventshq.configs.MessagesConfig;
-import com.nopermission.joineventshq.listeners.PlayerListener;
+import com.nopermission.joineventshq.listeners.FirstJoinListener;
+import com.nopermission.joineventshq.listeners.PlayerJoinListener;
+import com.nopermission.joineventshq.listeners.PlayerQuitListener;
 import com.nopermission.joineventshq.spawn.SpawnManager;
 import com.nopermission.joineventshq.utils.Text;
 import me.mattstudios.mf.base.CommandBase;
@@ -15,17 +16,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class JoinEventsHQ extends JavaPlugin {
 
-    private static JoinEventsHQ joinEventsHQ;
-    private static Configuration configuration;
-    private static MessagesConfig messagesConfig;
-    private static ComponentLogger componentLogger;
-
-    private static CommandManager commandManager;
+    private static JoinEventsHQ plugin;
+    private Configuration configuration;
+    private ComponentLogger componentLogger;
+    private CommandManager commandManager;
 
     @Override
     public void onEnable() {
         super.onEnable();
-        joinEventsHQ = this;
+        plugin = this;
 
         componentLogger = ComponentLogger.logger(this.getName());
 
@@ -45,17 +44,18 @@ public class JoinEventsHQ extends JavaPlugin {
 
     private void initConfigs() {
         configuration = new Configuration(this).init();
-        messagesConfig = new MessagesConfig(this).init();
     }
 
     private void initManagers() {
         commandManager = new CommandManager(this, true);
-        registerListener(new PlayerListener(this));
+        registerListener(new PlayerJoinListener(this));
         registerListener(new SpawnManager(this));
+        registerListener(new PlayerJoinListener(this));
+        registerListener(new FirstJoinListener());
+        registerListener(new PlayerQuitListener());
     }
 
     public void reload() {
-        messagesConfig.reload();
         configuration.reload();
         SpawnManager.get().reload();
     }
@@ -70,16 +70,12 @@ public class JoinEventsHQ extends JavaPlugin {
         }
     }
 
-    public MessagesConfig getMessage() {
-        return messagesConfig;
-    }
-
     public Configuration getConfiguration() {
         return configuration;
     }
 
     public static JoinEventsHQ get() {
-        return joinEventsHQ;
+        return plugin;
     }
 
     public void log(String message) {

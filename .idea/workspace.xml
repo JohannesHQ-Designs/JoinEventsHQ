@@ -5,34 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="abaf1b2c-ffcd-49b4-b479-33f54f1dc7ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/JoinEventsHQ.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/commands/JoinEventsHQCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/commands/SpawnCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/configs/Configuration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/configs/MessagesConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/configs/SpawnConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/listeners/PlayerListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/spawn/SpawnManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/spawn/models/Spawn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/utils/Text.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/utils/Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/configuration.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/messages.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/spawn.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/listeners/FirstJoinListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/listeners/PlayerQuitListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/JoinEventsHQ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/JoinEventsHQ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/commands/JoinEventsHQCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/commands/JoinEventsHQCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/configs/MessagesConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/listeners/PlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/listeners/PlayerJoinListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/spawn/SpawnManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/spawn/SpawnManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/spawn/models/Spawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/spawn/models/Spawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/utils/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/configuration.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/configuration.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.yml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

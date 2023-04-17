@@ -1,13 +1,26 @@
-enable: true
+# NOTE
+# This plugin is simply made to change / add some custom join features.
+# if there are any bugs please contact me on discord: getConsoleSender#7000
+# do not decompile this plugin or claim this plugin as yours.
+
+# PlaceholderAPI supported
+# default working placeholders: <uuid> <player>
+
+# join
+# Whenever player is joining the server, this function here below will be called.
+# this will replace the default leave message to something new you want.
+# you also can change it to "" to disable this!
+# ======================================
 join:
-  joinMessage: "%playerName% joined the server!"
+  joinMessage: "<player> joined the server!"
   title:
     enabled: true
     title: "&a&lʙɪᴏᴍᴇ &6&lɴᴇᴛᴡᴏʀᴋ"
     sub: "Welcome!"
   consoleCommands:
-    - 'cmi spawn %player_name%'
-  playerCommands: []
+    - 'cmi spawn <player>'
+  playerCommands:
+    - 'spawn'
   motd:
     enabled: true
     delay: 60
@@ -16,12 +29,22 @@ join:
       - ""
       - "                  &9🌊 &6Welcome to Biome Network &9🌊"
       - ""
-quit:
-  quitMessage: "%playerName% left the server!"
 
+# quit
+# Whenever player is quiting the server, this function here below will be called.
+# this will replace the default leave message to something new you want.
+# you also can change it to "" to disable this!
+# ======================================
+quit:
+  quitMessage: "<player> left the server!"
+
+# FIRSTJOIN
+# Whenever player is new to the server, this function here below will be called.
+# broadcast will notify all players in the entire server who has the permission: joineventshq.firstjoin
+# ======================================
 firstJoin:
   broadcast: ""
   sound: "BLOCK_BEEHIVE_EXIT"
   consoleCommands:
-    - 'cmi spawn %player_name%'
+    - 'cmi spawn <player>'
   playerCommands: []

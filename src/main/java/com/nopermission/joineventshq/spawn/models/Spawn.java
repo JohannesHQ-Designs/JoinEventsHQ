@@ -46,15 +46,14 @@ public class Spawn {
         return world != null;
     }
 
-    public void delete() {
+    public void deleteFromConfig() {
         YamlDocument config = SpawnManager.get().getSpawnConfig().getConfig();
         config.remove("spawns."+this.spawnname);
         SpawnManager.get().getSpawnConfig().save();
-        SpawnManager.get().loadSpawns();
     }
 
 
-    public void save() {
+    public void saveToConfig() {
         YamlDocument config = SpawnManager.get().getSpawnConfig().getConfig();
         config.set("spawns."+this.spawnname+".world", this.worldname);
         config.set("spawns."+this.spawnname+".x", this.position.getX());
