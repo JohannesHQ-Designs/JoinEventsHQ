@@ -1,6 +1,7 @@
 package com.nopermission.joineventshq.utils;
 
 import com.nopermission.joineventshq.JoinEventsHQ;
+import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
@@ -11,7 +12,7 @@ public class Utils {
 
     public static String formatString(Player player, String string) {
         if (JoinEventsHQ.get().hasPlugin("PlaceholderAPI"))
-            string = formatString(player, string);
+            string = PlaceholderAPI.setPlaceholders(player, string);
 
         string = string.replace("<player>", player.getName());
         string = string.replace("<uuid>", player.getUniqueId().toString());
