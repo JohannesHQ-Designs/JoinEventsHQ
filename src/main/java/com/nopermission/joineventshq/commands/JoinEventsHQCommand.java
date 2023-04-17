@@ -18,13 +18,15 @@ public class JoinEventsHQCommand extends CommandBase {
 
     @Default @Permission("joineventsprohq.admin")
     public void defaultCommand(CommandSender commandSender) {
-        List<String> strings = JoinEventsHQ.get().getMessage().helpMessage();
-        if (strings.isEmpty())
-            return;
+        commandSender.sendMessage(Text.formatComponent("&m-------------"));
+        commandSender.sendMessage(Text.formatComponent("&e&lJoinEventsHQ &fHelp Menu"));
+        commandSender.sendMessage(Text.formatComponent("&b/je &ffor help"));
+        commandSender.sendMessage(Text.formatComponent("&b/je reload &freload the configs"));
+        commandSender.sendMessage(Text.formatComponent("&b/je spawns &flist all spawns."));
+        commandSender.sendMessage(Text.formatComponent("&b/je addspawn <name> &fadd a spawn."));
+        commandSender.sendMessage(Text.formatComponent("&b/je removespawn <name> &fremove a spawn."));
+        commandSender.sendMessage(Text.formatComponent("&m-------------"));
 
-        for (String string : strings) {
-            commandSender.sendMessage(Text.formatComponent(string));
-        }
     }
 
     @SubCommand("reload") @Permission("joineventsprohq.admin")
@@ -37,7 +39,7 @@ public class JoinEventsHQCommand extends CommandBase {
     public void listSpawnsCommand(CommandSender commandSender) {
         HashMap<String, Spawn> spawnHashMap = SpawnManager.get().getSpawnHashMap();
         if (spawnHashMap.isEmpty()) {
-            commandSender.sendMessage(Text.formatComponent(JoinEventsHQ.get().getMessage().noSpawnsSet()));
+            commandSender.sendMessage(Text.formatComponent("&cNo spawns has been found!"));
             return;
         }
 
