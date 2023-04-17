@@ -48,7 +48,6 @@ public class JoinEventsHQ extends JavaPlugin {
 
     private void initManagers() {
         commandManager = new CommandManager(this, true);
-        registerListener(new PlayerJoinListener(this));
         registerListener(new SpawnManager(this));
         registerListener(new PlayerJoinListener(this));
         registerListener(new FirstJoinListener());
