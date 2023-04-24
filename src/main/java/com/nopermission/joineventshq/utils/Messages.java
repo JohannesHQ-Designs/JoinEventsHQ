@@ -7,6 +7,7 @@ public enum Messages {
             "<newline>&b/je &ffor help" +
             "<newline>&b/je reload &freload the configs" +
             "<newline>&b/je spawns &flist all spawns." +
+            "<newline>&b/je sounds &fTest sounds." +
             "<newline>&b/je addspawn <name> &fadd a spawn." +
             "<newline>&b/je removespawn <name> &fremove a spawn." +
             "<newline>&m-------------" +

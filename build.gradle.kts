@@ -27,6 +27,8 @@ dependencies {
 
     compileOnly("net.kyori:adventure-text-minimessage:4.12.0")
     compileOnly("net.kyori:adventure-api:4.12.0")
+
+    implementation("dev.triumphteam:triumph-gui:3.1.2")
 }
 
 java {

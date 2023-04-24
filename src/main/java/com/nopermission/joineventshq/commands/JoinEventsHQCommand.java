@@ -1,6 +1,8 @@
 package com.nopermission.joineventshq.commands;
 
 import com.nopermission.joineventshq.JoinEventsHQ;
+import com.nopermission.joineventshq.guis.SoundsGui;
+import com.nopermission.joineventshq.guis.SpawnsListGui;
 import com.nopermission.joineventshq.spawn.SpawnManager;
 import com.nopermission.joineventshq.spawn.models.Spawn;
 import com.nopermission.joineventshq.utils.Messages;
@@ -27,17 +29,14 @@ public class JoinEventsHQCommand extends CommandBase {
         JoinEventsHQ.sendMessage(commandSender, Messages.RELOAD_COMMAND);
     }
 
-    @SubCommand("spawns") @Permission("joineventsprohq.admin")
-    public void listSpawnsCommand(CommandSender commandSender) {
-        HashMap<String, Spawn> spawnHashMap = SpawnManager.get().getSpawnHashMap();
-        if (spawnHashMap.isEmpty()) {
-            JoinEventsHQ.sendMessage(commandSender, Messages.ADMIN_SPAWN_NOT_FOUND);
-            return;
-        }
+    @SubCommand("sounds") @Permission("joineventsprohq.admin.sounds")
+    public void soundTestCommand(Player player) {
+        new SoundsGui(player);
+    }
 
-        spawnHashMap.forEach((s, spawn) -> {
-            commandSender.sendMessage(Text.formatComponent("&eSpawn: &f" + s + " &7&o(loc: " + spawn.getLocation() + ")"));
-        });
+    @SubCommand("spawns") @Permission("joineventsprohq.admin.spawns")
+    public void spawnsCommand(Player player) {
+        new SpawnsListGui(player);
     }
 
     @SubCommand("addspawn") @Permission("joineventsprohq.admin")
@@ -54,9 +53,10 @@ public class JoinEventsHQCommand extends CommandBase {
 
         spawnManager.addSpawn(name, player.getLocation());
         JoinEventsHQ.getMessage(Messages.ADMIN_SPAWN_ADDED).ifPresent(s -> player.sendMessage(Text.formatComponent(s.replace("<name>", name))));
+        player.performCommand("je spawns");
     }
 
-    @SubCommand("remove") @Permission("joineventsprohq.admin")
+    @SubCommand("removespawn") @Permission("joineventsprohq.admin")
     public void removeSpawnsCommand(Player player, final String name) {
         if (name.isEmpty())
             return;
@@ -70,5 +70,6 @@ public class JoinEventsHQCommand extends CommandBase {
 
         spawnManager.delSpawn(name);
         JoinEventsHQ.getMessage(Messages.ADMIN_SPAWN_DELETED).ifPresent(s -> player.sendMessage(Text.formatComponent(s.replace("<name>", name))));
+        player.performCommand("je spawns");
     }
 }

@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="abaf1b2c-ffcd-49b4-b479-33f54f1dc7ef" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/guis/SoundsGui.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/guis/SpawnsListGui.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/utils/AtomicFloat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/JoinEventsHQ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/JoinEventsHQ.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/commands/JoinEventsHQCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/commands/JoinEventsHQCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/commands/SpawnCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/commands/SpawnCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/configs/MessagesConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/configs/MessagesConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/spawn/SpawnManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/spawn/SpawnManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/utils/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/utils/Messages.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,8 +57,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -88,6 +87,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.nopermission.joineventshq.guis" />
       <recent name="com.nopermission.joineventshq.configs" />
       <recent name="com.nopermission.joineventshq.commands" />
       <recent name="com.nopermission.joineventshq.models" />
@@ -217,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682335011210</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fixed bugs and udpate version to 1.0.1">
+      <created>1682336527048</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682336527048</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -227,6 +234,7 @@
     <MESSAGE value="Registered the listener 2 times instead of 1 time." />
     <MESSAGE value="Added API version" />
     <MESSAGE value="Added Messages System (simple)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Messages System (simple)" />
+    <MESSAGE value="Fixed bugs and udpate version to 1.0.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bugs and udpate version to 1.0.1" />
   </component>
 </project>
