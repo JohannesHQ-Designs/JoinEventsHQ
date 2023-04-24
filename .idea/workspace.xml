@@ -5,18 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="abaf1b2c-ffcd-49b4-b479-33f54f1dc7ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/configs/MessagesConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/utils/Messages.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/events.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/JoinEventsHQ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/JoinEventsHQ.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/commands/JoinEventsHQCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/commands/JoinEventsHQCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/commands/SpawnCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/commands/SpawnCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/configs/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/configs/Configuration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/listeners/PlayerJoinListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/listeners/PlayerJoinListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/spawn/models/Spawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/spawn/models/Spawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/configuration.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/configuration.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/configs/MessagesConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/configs/MessagesConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/spawn/SpawnManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopermission/joineventshq/spawn/SpawnManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681739383206</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added Messages System (simple)">
+      <created>1682335011210</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682335011210</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -223,6 +226,7 @@
     <MESSAGE value="Fixed loop issues" />
     <MESSAGE value="Registered the listener 2 times instead of 1 time." />
     <MESSAGE value="Added API version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added API version" />
+    <MESSAGE value="Added Messages System (simple)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Messages System (simple)" />
   </component>
 </project>

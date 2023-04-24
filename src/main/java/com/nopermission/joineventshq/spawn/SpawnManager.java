@@ -61,24 +61,14 @@ public class SpawnManager implements Listener {
     public void onRespawn(PlayerRespawnEvent event) {
         if (!spawnConfig.spawnOnRespawn())
             return;
-
-        Location location = nextSpawn().clone();
-        if (event.getPlayer().getAllowFlight())
-            location.add(0, 1, 0);
-
-        event.setRespawnLocation(location);
+        nextSpawn().ifPresent(event::setRespawnLocation);
     }
 
     @EventHandler
     public void onSpawn(PlayerSpawnLocationEvent event) {
         if (!spawnConfig.spawnOnJoin())
             return;
-
-        Location location = nextSpawn().clone();
-        if (event.getPlayer().getAllowFlight())
-            location.add(0, 1, 0);
-
-        event.setSpawnLocation(location);
+        nextSpawn().ifPresent(event::setSpawnLocation);
     }
 
     @EventHandler
@@ -87,7 +77,7 @@ public class SpawnManager implements Listener {
             return;
 
         if (event.getTo().getBlockY() <= 0)
-            event.getPlayer().teleport(nextSpawn().clone());
+            nextSpawn().ifPresent(location -> event.getPlayer().teleport(location));
     }
 
     public void loadSpawns() {
@@ -110,11 +100,13 @@ public class SpawnManager implements Listener {
         }
     }
 
-    public Location nextSpawn() {
+    public Optional<Location> nextSpawn() {
         List<Spawn> valuesList = new ArrayList<>(spawnHashMap.values());
+        if (valuesList.isEmpty())
+            return Optional.empty();
         int randomIndex = new Random().nextInt(valuesList.size());
         Spawn randomValue = valuesList.get(randomIndex);
-        return randomValue.getLocation();
+        return Optional.of(randomValue.getLocation().clone());
     }
 
     public HashMap<String, Spawn> getSpawnHashMap() {

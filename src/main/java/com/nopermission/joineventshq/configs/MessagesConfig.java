@@ -13,7 +13,6 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class MessagesConfig {
 
@@ -46,23 +45,35 @@ public class MessagesConfig {
 
     public void loadMessages() {
         Section configSection = config.getSection("messages");
-        if (configSection == null)
-            return;
+        if (configSection == null || configSection.getKeys().size() == 0) {
+            for (Messages value : Messages.values()) {
+                insertMessage(value);
+            }
+        }
 
-        AtomicInteger atomicInteger = new AtomicInteger(0);
         for (Messages value : Messages.values()) {
             String key = ("messages." + value.getKey());
             String msg;
             if (config.contains(key)) {
                 msg = config.getString(key);
             } else {
-                config.set(key, value.getMessage());
+                insertMessage(value);
                 msg = value.getMessage();
             }
 
             messages.put(value, msg);
         }
-        plugin.log("&aLoaded " + atomicInteger.get() + " messages!");
+        plugin.log("&aLoaded " + messages.size() + " messages!");
+    }
+
+    public void insertMessage(Messages messages) {
+        try {
+            plugin.log("Inserting default message: &e" + messages.getKey());
+            config.set("messages." + messages.getKey(), messages.getMessage());
+            config.save();
+        } catch (IOException e) {
+            //DO nothing
+        }
     }
 
     public String getPrefix() {

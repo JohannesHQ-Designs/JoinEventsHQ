@@ -1,5 +1,5 @@
 name: JoinEventsHQ
-version: ${project.version}
+version: 1.0.1
 api-version: 1.13
 main: com.nopermission.joineventshq.JoinEventsHQ
 softdepend:

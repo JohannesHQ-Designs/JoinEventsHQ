@@ -13,9 +13,7 @@ import com.nopermission.joineventshq.utils.Text;
 import me.mattstudios.mf.base.CommandBase;
 import me.mattstudios.mf.base.CommandManager;
 import net.kyori.adventure.audience.Audience;
-import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.logger.slf4j.ComponentLogger;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 

@@ -14,7 +14,7 @@ public class SpawnCommand extends CommandBase {
 
     @Default
     public void spawnCommand(Player player) {
-        player.teleport(SpawnManager.get().nextSpawn());
+        SpawnManager.get().nextSpawn().ifPresent(player::teleport);
         JoinEventsHQ.sendMessage(player, Messages.SPAWN_COMMAND);
     }
 }
