@@ -1,6 +1,8 @@
 package com.nopermission.joineventshq.commands;
 
+import com.nopermission.joineventshq.JoinEventsHQ;
 import com.nopermission.joineventshq.spawn.SpawnManager;
+import com.nopermission.joineventshq.utils.Messages;
 import me.mattstudios.mf.annotations.Alias;
 import me.mattstudios.mf.annotations.Command;
 import me.mattstudios.mf.annotations.Default;
@@ -13,5 +15,6 @@ public class SpawnCommand extends CommandBase {
     @Default
     public void spawnCommand(Player player) {
         player.teleport(SpawnManager.get().nextSpawn());
+        JoinEventsHQ.sendMessage(player, Messages.SPAWN_COMMAND);
     }
 }

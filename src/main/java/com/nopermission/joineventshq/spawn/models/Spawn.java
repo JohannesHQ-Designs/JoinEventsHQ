@@ -8,8 +8,8 @@ import org.bukkit.World;
 import org.bukkit.util.Vector;
 
 public class Spawn {
-    private String spawnname;
-    private String worldname;
+    private final String spawnname;
+    private final String worldname;
     private Vector position;
     private float yaw;
     private float pitch;

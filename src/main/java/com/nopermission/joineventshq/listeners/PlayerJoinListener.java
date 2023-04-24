@@ -41,8 +41,6 @@ public class PlayerJoinListener implements Listener {
 
     @EventHandler(priority = EventPriority.NORMAL)
     public void onJoin(PlayerJoinEvent event) {
-        if (!plugin.getConfiguration().motdEnabled())
-            return;
         Player player = event.getPlayer();
         List<String> joinCommands = plugin.getConfiguration().getJoinCommands();
         if (!joinCommands.isEmpty()) {
@@ -61,6 +59,11 @@ public class PlayerJoinListener implements Listener {
         if (plugin.getConfiguration().isTitleEnabled()) {
             Title title = Title.title(Text.formatComponent(plugin.getConfiguration().getJoinedTitle()), Text.formatComponent(plugin.getConfiguration().getJoinedSubTitle()));
             player.showTitle(title);
+        }
+
+        if (plugin.getConfiguration().flyOnJoinEnabled() && player.hasPermission(plugin.getConfiguration().flyOnJoinPermission())) {
+            player.setAllowFlight(true);
+            player.setFlying(true);
         }
 
         String joinMessage = plugin.getConfiguration().getJoinMessage();

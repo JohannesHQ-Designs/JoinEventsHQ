@@ -3,6 +3,7 @@ package com.nopermission.joineventshq.commands;
 import com.nopermission.joineventshq.JoinEventsHQ;
 import com.nopermission.joineventshq.spawn.SpawnManager;
 import com.nopermission.joineventshq.spawn.models.Spawn;
+import com.nopermission.joineventshq.utils.Messages;
 import com.nopermission.joineventshq.utils.Text;
 import me.mattstudios.mf.annotations.*;
 import me.mattstudios.mf.base.CommandBase;
@@ -18,28 +19,20 @@ public class JoinEventsHQCommand extends CommandBase {
 
     @Default @Permission("joineventsprohq.admin")
     public void defaultCommand(CommandSender commandSender) {
-        commandSender.sendMessage(Text.formatComponent("&m-------------"));
-        commandSender.sendMessage(Text.formatComponent("&e&lJoinEventsHQ &fHelp Menu"));
-        commandSender.sendMessage(Text.formatComponent("&b/je &ffor help"));
-        commandSender.sendMessage(Text.formatComponent("&b/je reload &freload the configs"));
-        commandSender.sendMessage(Text.formatComponent("&b/je spawns &flist all spawns."));
-        commandSender.sendMessage(Text.formatComponent("&b/je addspawn <name> &fadd a spawn."));
-        commandSender.sendMessage(Text.formatComponent("&b/je removespawn <name> &fremove a spawn."));
-        commandSender.sendMessage(Text.formatComponent("&m-------------"));
-
+        JoinEventsHQ.sendMessage(commandSender, Messages.HELP);
     }
 
     @SubCommand("reload") @Permission("joineventsprohq.admin")
     public void reloadCommand(CommandSender commandSender) {
         JoinEventsHQ.get().reload();
-        commandSender.sendMessage(Text.formatComponent("&aReloaded the plugin files and messages!"));
+        JoinEventsHQ.sendMessage(commandSender, Messages.RELOAD_COMMAND);
     }
 
     @SubCommand("spawns") @Permission("joineventsprohq.admin")
     public void listSpawnsCommand(CommandSender commandSender) {
         HashMap<String, Spawn> spawnHashMap = SpawnManager.get().getSpawnHashMap();
         if (spawnHashMap.isEmpty()) {
-            commandSender.sendMessage(Text.formatComponent("&cNo spawns has been found!"));
+            JoinEventsHQ.sendMessage(commandSender, Messages.ADMIN_SPAWN_NOT_FOUND);
             return;
         }
 
@@ -56,13 +49,12 @@ public class JoinEventsHQCommand extends CommandBase {
         SpawnManager spawnManager = SpawnManager.get();
         Optional<Spawn> optionalSpawn = spawnManager.getSpawn(name);
         if (optionalSpawn.isPresent()) {
-            player.sendMessage(Text.formatComponent("&cThis spawn already exists!"));
+            JoinEventsHQ.sendMessage(player, Messages.ADMIN_SPAWN_ALREADY_FOUND);
             return;
         }
 
         spawnManager.addSpawn(name, player.getLocation());
-        player.sendMessage(Text.formatComponent("&aAdded the spawn: " + name));
-
+        JoinEventsHQ.getMessage(Messages.ADMIN_SPAWN_ADDED).ifPresent(s -> player.sendMessage(Text.formatComponent(s.replace("<name>", name))));
     }
 
     @SubCommand("remove") @Permission("joineventsprohq.admin")
@@ -73,11 +65,11 @@ public class JoinEventsHQCommand extends CommandBase {
         SpawnManager spawnManager = SpawnManager.get();
         Optional<Spawn> optionalSpawn = spawnManager.getSpawn(name);
         if (optionalSpawn.isEmpty()) {
-            player.sendMessage(Text.formatComponent("&cThere is no spawn with this name!"));
+            JoinEventsHQ.getMessage(Messages.ADMIN_SPAWN_TARGET_NOT_FOUND).ifPresent(s -> player.sendMessage(Text.formatComponent(s.replace("<name>", name))));
             return;
         }
 
         spawnManager.delSpawn(name);
-        player.sendMessage(Text.formatComponent("&cDeleted the spawn: " + name));
+        JoinEventsHQ.getMessage(Messages.ADMIN_SPAWN_DELETED).ifPresent(s -> player.sendMessage(Text.formatComponent(s.replace("<name>", name))));
     }
 }

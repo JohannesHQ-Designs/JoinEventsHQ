@@ -13,6 +13,8 @@
 # ======================================
 join:
   joinMessage: "<player> joined the server!"
+  flyOnJoin: true
+  flyOnJoinPermission: "joineventshq.joinfly"
   title:
     enabled: true
     title: "&a&lʙɪᴏᴍᴇ &6&lɴᴇᴛᴡᴏʀᴋ"

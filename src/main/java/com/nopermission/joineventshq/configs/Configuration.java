@@ -21,6 +21,14 @@ public class Configuration {
         return config.getBoolean("join.title.enabled");
     }
 
+    public boolean flyOnJoinEnabled() {
+        return config.getBoolean("join.flyOnJoin");
+    }
+
+    public String flyOnJoinPermission() {
+        return config.getString("join.flyOnJoinPermission");
+    }
+
     public String getJoinMessage() {
         return config.getString("join.joinMessage");
     }

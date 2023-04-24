@@ -1,0 +1,14 @@
+#IN DEV
+
+events:
+  testEvent:
+    event: JOIN
+    requirements:
+      hasMeta:
+        type: string equals
+        input: '%luckperms_meta_disable_scoreboard%'
+        output: 'true'
+      denyCommands:
+        - 'fb toggle on'
+      allowCommands:
+        - 'fb toggle off'

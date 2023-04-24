@@ -3,21 +3,29 @@ package com.nopermission.joineventshq;
 import com.nopermission.joineventshq.commands.JoinEventsHQCommand;
 import com.nopermission.joineventshq.commands.SpawnCommand;
 import com.nopermission.joineventshq.configs.Configuration;
+import com.nopermission.joineventshq.configs.MessagesConfig;
 import com.nopermission.joineventshq.listeners.FirstJoinListener;
 import com.nopermission.joineventshq.listeners.PlayerJoinListener;
 import com.nopermission.joineventshq.listeners.PlayerQuitListener;
 import com.nopermission.joineventshq.spawn.SpawnManager;
+import com.nopermission.joineventshq.utils.Messages;
 import com.nopermission.joineventshq.utils.Text;
 import me.mattstudios.mf.base.CommandBase;
 import me.mattstudios.mf.base.CommandManager;
+import net.kyori.adventure.audience.Audience;
+import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.logger.slf4j.ComponentLogger;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Optional;
 
 public class JoinEventsHQ extends JavaPlugin {
 
     private static JoinEventsHQ plugin;
     private Configuration configuration;
+    private static MessagesConfig messagesConfig;
     private ComponentLogger componentLogger;
     private CommandManager commandManager;
 
@@ -44,6 +52,7 @@ public class JoinEventsHQ extends JavaPlugin {
 
     private void initConfigs() {
         configuration = new Configuration(this).init();
+        messagesConfig = new MessagesConfig(this).init();
     }
 
     private void initManagers() {
@@ -56,7 +65,20 @@ public class JoinEventsHQ extends JavaPlugin {
 
     public void reload() {
         configuration.reload();
+        messagesConfig.reload();
         SpawnManager.get().reload();
+    }
+
+    public static void sendMessage(Audience audience, Messages message) {
+        messagesConfig.getComponentMessage(message).ifPresent(audience::sendMessage);
+    }
+
+    public static Optional<String> getMessage(Messages message) {
+        return messagesConfig.getMessage(message);
+    }
+
+    public MessagesConfig getMessagesConfig() {
+        return messagesConfig;
     }
 
     public void registerCommands(CommandBase... commandBases) {

@@ -24,6 +24,9 @@ dependencies {
 
     //Command Framework
     implementation("me.mattstudios.utils:matt-framework:1.4")
+
+    compileOnly("net.kyori:adventure-text-minimessage:4.12.0")
+    compileOnly("net.kyori:adventure-api:4.12.0")
 }
 
 java {
